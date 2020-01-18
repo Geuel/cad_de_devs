@@ -2,7 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const routes = require('./routes')
-var porta = 3333
 
 const app = express()
 mongoose.connect('mongodb+srv://geuel:g1234@cluster0-lkpja.mongodb.net/omini?retryWrites=true&w=majority', {
@@ -14,4 +13,4 @@ app.use(cors())
 app.use(express.json())
 app.use(routes)
 
-app.listen(porta)
+app.listen( process.env.PORT||3333)
